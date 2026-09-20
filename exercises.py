@@ -39,7 +39,6 @@ def check_voting_eligibility():
 check_voting_eligibility()
 
 # Exercise 3: Calculate Dog Years
-# Exercise 3: Calculate Dog Years
 
 def calculate_dog_years():
     age = int(input("Input a dog's age: "))
@@ -72,3 +71,49 @@ def weather_advice():
         print("Wear light clothing.")
 
 weather_advice()
+
+# Exercise 5: What's the Season?
+
+def determine_season():
+    month = input("Enter the month of the year (Jan - Dec): ").capitalize()
+    day = int(input("Enter the day of the month: "))
+
+    if month in ["Jan", "Feb"]:
+        season = "Winter"
+
+    elif month == "Mar":
+        if day < 20:
+            season = "Winter"
+        else:
+            season = "Spring"
+
+    elif month in ["Apr", "May"]:
+        season = "Spring"
+
+    elif month == "Jun":
+        if day < 21:
+            season = "Spring"
+        else:
+            season = "Summer"
+
+    elif month in ["Jul", "Aug"]:
+        season = "Summer"
+
+    elif month == "Sep":
+        if day < 22:
+            season = "Summer"
+        else:
+            season = "Fall"
+
+    elif month in ["Oct", "Nov"]:
+        season = "Fall"
+
+    elif month == "Dec":
+        if day < 21:
+            season = "Fall"
+        else:
+            season = "Winter"
+
+    print(f"{month} {day} is in {season}.")
+
+determine_season()
