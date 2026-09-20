@@ -37,3 +37,18 @@ def check_voting_eligibility():
         print("Please enter a valid age.")
 
 check_voting_eligibility()
+
+# Exercise 3: Calculate Dog Years
+# Exercise 3: Calculate Dog Years
+
+def calculate_dog_years():
+    age = int(input("Input a dog's age: "))
+
+    if age <= 2:
+        dog_years = age * 10
+    else:
+        dog_years = 20 + (age - 2) * 7
+
+    print(f"The dog's age in dog years is {dog_years}.")
+
+calculate_dog_years()
