@@ -78,42 +78,39 @@ def determine_season():
     month = input("Enter the month of the year (Jan - Dec): ").capitalize()
     day = int(input("Enter the day of the month: "))
 
-    if month in ["Jan", "Feb"]:
+    if month == "Dec" and day >= 21 or month in ["Jan", "Feb"] or month == "Mar" and day <= 19:
         season = "Winter"
-
-    elif month == "Mar":
-        if day < 20:
-            season = "Winter"
-        else:
-            season = "Spring"
-
-    elif month in ["Apr", "May"]:
+    elif month == "Mar" and day >= 20 or month in ["Apr", "May"] or month == "Jun" and day <= 20:
         season = "Spring"
-
-    elif month == "Jun":
-        if day < 21:
-            season = "Spring"
-        else:
-            season = "Summer"
-
-    elif month in ["Jul", "Aug"]:
+    elif month == "Jun" and day >= 21 or month in ["Jul", "Aug"] or month == "Sep" and day <= 21:
         season = "Summer"
-
-    elif month == "Sep":
-        if day < 22:
-            season = "Summer"
-        else:
-            season = "Fall"
-
-    elif month in ["Oct", "Nov"]:
+    else:
         season = "Fall"
-
-    elif month == "Dec":
-        if day < 21:
-            season = "Fall"
-        else:
-            season = "Winter"
 
     print(f"{month} {day} is in {season}.")
 
 determine_season()
+
+# Exercise 6: Number Guessing Game
+
+def guess_number():
+    target = 42
+
+    for attempt in range(1, 6):
+        if attempt == 5:
+            print("Last chance!")
+
+        guess = int(input("Guess a number between 1 and 100: "))
+
+        if guess == target:
+            print("Congratulations, you guessed correctly!")
+            break
+        elif guess < target:
+            print("Guess is too low")
+        else:
+            print("Guess is too high.")
+
+    else:
+        print("Sorry, you failed to guess the number in five attempts.")
+
+guess_number()
