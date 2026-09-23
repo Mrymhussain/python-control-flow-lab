@@ -77,16 +77,27 @@ def determine_season():
     month = input("Enter the month of the year (Jan - Dec): ").capitalize()
     day = int(input("Enter the day of the month: "))
 
-    if month == "Dec" and day >= 21 or month in ["Jan", "Feb"] or month == "Mar" and day <= 19:
-        season = "Winter"
-    elif month == "Mar" and day >= 20 or month in ["Apr", "May"] or month == "Jun" and day <= 20:
-        season = "Spring"
-    elif month == "Jun" and day >= 21 or month in ["Jul", "Aug"] or month == "Sep" and day <= 21:
-        season = "Summer"
-    else:
-        season = "Fall"
+    valid_months = [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ]
 
-    print(f"{month} {day} is in {season}.")
+    if month not in valid_months:
+        print("Invalid month.")
+    elif day < 1 or day > 31:
+        print("Invalid date.")
+    elif month == "Feb" and day > 29:
+        print("Invalid date.")
+    elif month in ["Apr", "Jun", "Sep", "Nov"] and day > 30:
+        print("Invalid date.")
+    elif (month == "Dec" and day >= 21) or month in ["Jan", "Feb"] or (month == "Mar" and day <= 19):
+        print(f"{month} {day} is in Winter.")
+    elif (month == "Mar" and day >= 20) or month in ["Apr", "May"] or (month == "Jun" and day <= 20):
+        print(f"{month} {day} is in Spring.")
+    elif (month == "Jun" and day >= 21) or month in ["Jul", "Aug"] or (month == "Sep" and day <= 21):
+        print(f"{month} {day} is in Summer.")
+    else:
+        print(f"{month} {day} is in Fall.")
 
 determine_season()
 
