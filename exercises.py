@@ -58,16 +58,15 @@ def weather_advice():
     cold = input("Is it cold? (yes/no): ").lower()
     raining = input("Is it raining? (yes/no): ").lower()
 
-    is_cold = cold == "yes"
-    is_raining = raining == "yes"
-
-    if is_cold and is_raining:
+    if cold not in ["yes", "no"] or raining not in ["yes", "no"]:
+        print("Invalid input. Please enter yes or no.")
+    elif cold == "yes" and raining == "yes":
         print("Wear a waterproof coat.")
-    elif is_cold and not is_raining:
+    elif cold == "yes" and raining == "no":
         print("Wear a warm coat.")
-    elif not is_cold and is_raining:
+    elif cold == "no" and raining == "yes":
         print("Carry an umbrella.")
-    elif not is_cold and not is_raining:
+    else:
         print("Wear light clothing.")
 
 weather_advice()
